@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Brief</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --purple: #533afd;
+            --purple-hover: #4434d4;
+            --purple-deep: #2e2b8c;
+            --purple-light: #b9b9f9;
+            --purple-soft-bg: rgba(83,58,253,0.05);
+            --navy: #061b31;
+            --dark-navy: #0d253d;
+            --brand-dark: #1c1e54;
+            --slate: #64748d;
+            --dark-slate: #273951;
+            --white: #ffffff;
+            --border: #e5edf5;
+            --border-purple: #b9b9f9;
+            --ruby: #ea2261;
+            --magenta: #f96bee;
+            --magenta-light: #ffd7ef;
+            --success: #15be53;
+            --success-text: #108c3d;
+            --shadow-blue: rgba(50,50,93,0.25);
+            --shadow-black: rgba(0,0,0,0.1);
+            --shadow-ambient: rgba(23,23,23,0.08);
+            --shadow-soft: rgba(23,23,23,0.06);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--slate);
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--purple); text-decoration: none; }
+        a:hover { color: var(--purple-hover); }
+
+        /* ── HEADER ── */
+        header {
+            padding: 3rem 2rem 2.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--white);
+        }
+        .header-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+        .header-brand {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--slate);
+            letter-spacing: 0.1px;
+            text-transform: uppercase;
+        }
+        .header-date {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--slate);
+            letter-spacing: 0.1px;
+        }
+        .header-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: var(--navy);
+            line-height: 1.15;
+            letter-spacing: -0.96px;
+            margin-bottom: 0.75rem;
+        }
+        .vibe-check {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--slate);
+            line-height: 1.4;
+            max-width: 700px;
+        }
+
+        /* ── SECTION SYSTEM ── */
+        section {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .section-label {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--purple);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--navy);
+            line-height: 1.1;
+            letter-spacing: -0.64px;
+            margin-bottom: 2rem;
+        }
+        .section-divider {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            margin: 0;
+        }
+
+        /* ── NORTH STAR GRID ── */
+        .north-star-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .north-star-grid .ns-card:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .ns-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .ns-card:hover {
+            box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+            transform: translateY(-2px);
+        }
+
+        .ns-card a.card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+        .ns-card a.card-link:hover { color: inherit; }
+
+        .ns-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+            background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 100%);
+        }
+        .ns-image-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 50%, #3d1a6e 100%);
+        }
+        .ns-image-placeholder span {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Featured (first) card has wider image */
+        .ns-card:first-child .ns-image,
+        .ns-card:first-child .ns-image-placeholder {
+            aspect-ratio: 2.5 / 1;
+        }
+
+        .ns-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+        }
+        .ns-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .ns-source {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--slate);
+        }
+        .ns-category {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--purple);
+            background: var(--purple-soft-bg);
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(83,58,253,0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .ns-surprise {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--ruby);
+            background: rgba(234,34,97,0.06);
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(234,34,97,0.15);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .ns-title {
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--navy);
+            line-height: 1.1;
+            letter-spacing: -0.22px;
+            margin-bottom: 0.5rem;
+        }
+        .ns-card:first-child .ns-title {
+            font-size: 26px;
+            letter-spacing: -0.26px;
+        }
+        .ns-take {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--slate);
+            line-height: 1.4;
+        }
+
+        /* ── CLIENT FUEL ── */
+        .client-fuel-section {
+            background: var(--brand-dark);
+            max-width: none;
+            padding: 3rem 2rem;
+        }
+        .client-fuel-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .client-fuel-section .section-label {
+            color: var(--purple-light);
+        }
+        .client-fuel-section .section-title {
+            color: var(--white);
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .client-block {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+        }
+        .client-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .client-emoji { font-size: 1.1rem; }
+        .client-name {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: -0.14px;
+        }
+        .client-item {
+            padding: 0.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .client-item:first-of-type { border-top: none; }
+        .client-item-title {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+        .client-item-title a { color: var(--white); }
+        .client-item-title a:hover { color: var(--purple-light); }
+        .client-item-why {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.4;
+        }
+        .client-empty {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.3);
+            font-style: italic;
+        }
+
+        /* ── CULTURE RADAR ── */
+        .radar-break {
+            height: 1px;
+            max-width: 1080px;
+            margin: 2rem auto 0;
+            background: linear-gradient(90deg, var(--border) 0%, var(--purple-light) 50%, var(--border) 100%);
+        }
+        .radar-section {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 3rem;
+        }
+        .radar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .radar-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--purple);
+            border-radius: 4px;
+            padding: 1.25rem 1.5rem;
+            transition: box-shadow 0.2s ease;
+        }
+        .radar-card:hover {
+            box-shadow: rgba(23,23,23,0.08) 0px 15px 35px 0px;
+        }
+        .radar-signal {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--navy);
+            line-height: 1.4;
+        }
+        .radar-signal strong {
+            font-weight: 500;
+            color: var(--navy);
+        }
+        .radar-signal a {
+            color: var(--purple);
+            text-decoration: underline;
+            text-decoration-color: var(--purple-light);
+            text-underline-offset: 2px;
+        }
+        .radar-signal a:hover {
+            color: var(--purple-hover);
+            text-decoration-color: var(--purple-hover);
+        }
+        .header-title a {
+            color: var(--purple);
+            text-decoration: underline;
+            text-decoration-color: var(--purple-light);
+            text-underline-offset: 3px;
+        }
+        .header-title a:hover {
+            color: var(--purple-hover);
+            text-decoration-color: var(--purple-hover);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+        }
+        .footer-stats {
+            display: flex;
+            gap: 2rem;
+        }
+        .footer-stat {
+            text-align: center;
+        }
+        .footer-stat-value {
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--navy);
+            letter-spacing: -0.22px;
+        }
+        .footer-stat-value.success { color: var(--success-text); }
+        .footer-stat-value.fail { color: var(--ruby); }
+        .footer-stat-label {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--slate);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .footer-credit {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--slate);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .north-star-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            header { padding: 2rem 1.25rem 2rem; }
+            .header-title { font-size: 32px; letter-spacing: -0.64px; }
+            .vibe-check { font-size: 16px; }
+            section { padding: 2rem 1.25rem; }
+            .section-title { font-size: 26px; letter-spacing: -0.26px; }
+            .north-star-grid { grid-template-columns: 1fr; }
+            .ns-card:first-child .ns-title { font-size: 22px; letter-spacing: -0.22px; }
+            .ns-card:first-child .ns-image,
+            .ns-card:first-child .ns-image-placeholder { aspect-ratio: 16 / 9; }
+            .client-grid { grid-template-columns: 1fr; }
+            .radar-section { padding: 2.5rem 1.25rem 2rem; }
+            .radar-grid { grid-template-columns: 1fr; }
+            .client-fuel-section { padding: 2rem 1.25rem; }
+            footer { flex-direction: column; gap: 1rem; padding: 1.5rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════
+         HEADER
+         Scout replaces template markers with daily content.
+         ═══════════════════════════════════════════════ -->
+
+    <header>
+        <div class="header-inner">
+            <div class="header-top">
+                <span class="header-brand">The Daily Brief</span>
+                <span class="header-date"><!-- GENERATED_DATE -->April 6, 2026</span>
+            </div>
+            <h1 class="header-title"><!-- VIBE_CHECK_SUMMARY -->Brutalism is eating brand design alive, three different sources covered <a href="https://example.com/ai-stopmotion">AI stop-motion</a>, and Nick Cave <a href="https://example.com/red-hand-files">wrote something</a> that made us close our laptops for ten minutes.</h1>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════
+         NORTH STAR
+         ═══════════════════════════════════════════════ -->
+
+    <section>
+        <div class="section-label">North Star</div>
+        <div class="section-title">The best new creative work, period.</div>
+
+        <div class="north-star-grid">
+            <!-- NORTH_STAR_ITEMS -->
+
+            <!-- Item 1: Featured (spans full width) -->
+            <div class="ns-card">
+                <a class="card-link" href="https://example.com/article-1" target="_blank">
+                    <img class="ns-image" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&h=480&fit=crop" alt="">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Colossal</span>
+                            <span class="ns-category">Culture</span>
+                        </div>
+                        <h2 class="ns-title">A 40-Foot Kinetic Sculpture Made Entirely of Discarded Typewriters</h2>
+                        <p class="ns-take">The mechanical choreography is breathtaking — each key strikes in sequence to spell out passages from letters its previous owners typed decades ago.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="ns-card">
+                <a class="card-link" href="https://example.com/article-2" target="_blank">
+                    <div class="ns-image-placeholder"><span>Photography</span></div>
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Magnum Photos</span>
+                            <span class="ns-category">Photography</span>
+                            <span class="ns-surprise">Wildcard</span>
+                        </div>
+                        <h2 class="ns-title">Infrared Portraits of Tokyo's Last Kissaten</h2>
+                        <p class="ns-take">Shot entirely on modified film stock that renders heat as color — every coffee cup glows like a small sun.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="ns-card">
+                <a class="card-link" href="https://example.com/article-3" target="_blank">
+                    <div class="ns-image-placeholder"><span>Advertising</span></div>
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">It's Nice That</span>
+                            <span class="ns-category">Advertising</span>
+                        </div>
+                        <h2 class="ns-title">Oatly Turned Their Entire Annual Report Into a Board Game</h2>
+                        <p class="ns-take">Every financial metric is a game mechanic. Revenue is points, lawsuits are trap cards. The investor deck has never been this honest or this fun.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="ns-card">
+                <a class="card-link" href="https://example.com/article-4" target="_blank">
+                    <div class="ns-image-placeholder"><span>Film</span></div>
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Art of the Title</span>
+                            <span class="ns-category">Film</span>
+                        </div>
+                        <h2 class="ns-title">The Title Sequence for "Meridian" Uses Only Sunlight and Dust</h2>
+                        <p class="ns-take">No CGI, no type — just a beam of light through a cracked warehouse wall, with dust particles forming each credit.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="ns-card">
+                <a class="card-link" href="https://example.com/article-5" target="_blank">
+                    <div class="ns-image-placeholder"><span>Internet Culture</span></div>
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">The Pudding</span>
+                            <span class="ns-category">Data Viz</span>
+                            <span class="ns-surprise">Wildcard</span>
+                        </div>
+                        <h2 class="ns-title">Every Billboard #1 Mapped by the Weather on Release Day</h2>
+                        <p class="ns-take">The correlation between seasonal affect and chart success is wild. Summer songs released during cold snaps consistently underperform.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- END NORTH_STAR_ITEMS -->
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         CULTURE RADAR — visually separated block
+         ═══════════════════════════════════════════════ -->
+
+    <div class="radar-break"></div>
+
+    <div class="radar-section">
+        <div class="section-label">Culture Radar</div>
+        <div class="section-title">What's the signal?</div>
+
+        <div class="radar-grid">
+            <!-- CULTURE_RADAR_SIGNALS -->
+
+            <div class="radar-card">
+                <p class="radar-signal"><strong>Brutalist typography</strong> is showing up in brand work that has no business being brutalist — saw it in a <a href="https://example.com/hospital-rebrand">children's hospital rebrand</a> and a <a href="https://example.com/luxury-hotel">luxury hotel identity</a> in the same week.</p>
+            </div>
+
+            <div class="radar-card">
+                <p class="radar-signal"><strong>AI-generated stop motion</strong> is crossing from experiment to production tool — <a href="https://example.com/cartoon-brew">Cartoon Brew covered it</a>, <a href="https://example.com/runway">Runway shipped new tooling</a>, and <a href="https://example.com/anim-obsessive">Animation Obsessive did a deep dive</a>.</p>
+            </div>
+
+            <div class="radar-card">
+                <p class="radar-signal"><strong>90s archive culture</strong> is accelerating: <a href="https://example.com/y2k-fashion">Y2K aesthetics in fashion</a>, <a href="https://example.com/zine-pubs">zine-format digital publications</a>, and a wave of <a href="https://example.com/brand-nostalgia">brand nostalgia</a> that feels less ironic than last year's version.</p>
+            </div>
+
+            <!-- END CULTURE_RADAR_SIGNALS -->
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         CLIENT FUEL
+         ═══════════════════════════════════════════════ -->
+
+    <div class="client-fuel-section">
+        <div class="client-fuel-inner">
+            <div class="section-label">Client Fuel</div>
+            <div class="section-title">Relevant to current briefs. Only genuine connections.</div>
+
+            <div class="client-grid">
+                <!-- CLIENT_FUEL_ITEMS -->
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">&#x1F43A;</span>
+                        <span class="client-name">Great Wolf Lodge</span>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-item-title"><a href="https://example.com">Marriott's New "Lobby as Playground" Concept</a></div>
+                        <div class="client-item-why">Family resort brand turning shared spaces into interactive experiences — directly relevant to GWL's experiential positioning.</div>
+                    </div>
+                </div>
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">&#x1F6CB;&#xFE0F;</span>
+                        <span class="client-name">Wayfair</span>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-item-title"><a href="https://example.com">IKEA's "Imperfect Homes" Campaign</a></div>
+                        <div class="client-item-why">Real families, real messes, real comfort. The "imperfect moments" angle Wayfair owns, done beautifully by a competitor.</div>
+                    </div>
+                </div>
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">&#x1F969;</span>
+                        <span class="client-name">Slim Jim</span>
+                    </div>
+                    <p class="client-empty">Nothing today — quality over quantity.</p>
+                </div>
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">&#x1F985;</span>
+                        <span class="client-name">Jeep / America 250</span>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-item-title"><a href="https://example.com">Patagonia's "Every Trail Has a Story" Short Film</a></div>
+                        <div class="client-item-why">Heritage + outdoor adventure filmmaking that nails the cinematic patriotism tone without feeling forced.</div>
+                    </div>
+                </div>
+
+                <!-- END CLIENT_FUEL_ITEMS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════ -->
+
+    <footer>
+        <div class="footer-stats">
+            <div class="footer-stat">
+                <div class="footer-stat-value"><!-- SOURCES_CHECKED -->77</div>
+                <div class="footer-stat-label">Sources checked</div>
+            </div>
+            <div class="footer-stat">
+                <div class="footer-stat-value success"><!-- SOURCES_OK -->64</div>
+                <div class="footer-stat-label">Returned content</div>
+            </div>
+            <div class="footer-stat">
+                <div class="footer-stat-value fail"><!-- SOURCES_FAILED -->3</div>
+                <div class="footer-stat-label">Failed</div>
+            </div>
+        </div>
+        <div class="footer-credit">Curated by Scout &middot; OpenClaw</div>
+    </footer>
+
+</body>
+</html>
