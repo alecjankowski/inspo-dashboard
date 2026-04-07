@@ -47,461 +47,191 @@
         a { color: var(--purple); text-decoration: none; }
         a:hover { color: var(--purple-hover); }
 
-        /* ── HEADER ── */
         header {
             padding: 3rem 2rem 2.5rem;
             border-bottom: 1px solid var(--border);
             background: var(--white);
         }
-        .header-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-        }
+        .header-inner { max-width: 1080px; margin: 0 auto; }
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1.25rem;
         }
-        .header-brand {
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--slate);
-            letter-spacing: 0.1px;
-            text-transform: uppercase;
-        }
-        .header-date {
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--slate);
-            letter-spacing: 0.1px;
-        }
-        .header-title {
-            font-size: 48px;
-            font-weight: 300;
-            color: var(--navy);
-            line-height: 1.15;
-            letter-spacing: -0.96px;
-            margin-bottom: 0.75rem;
-        }
-        .vibe-check {
-            font-size: 18px;
-            font-weight: 300;
-            color: var(--slate);
-            line-height: 1.4;
-            max-width: 700px;
-        }
+        .header-brand { font-size: 12px; font-weight: 400; color: var(--slate); letter-spacing: 0.1px; text-transform: uppercase; }
+        .header-date { font-size: 12px; font-weight: 400; color: var(--slate); letter-spacing: 0.1px; }
+        .header-title { font-size: 48px; font-weight: 300; color: var(--navy); line-height: 1.15; letter-spacing: -0.96px; margin-bottom: 0.75rem; }
+        .header-title a { color: var(--purple); text-decoration: underline; text-decoration-color: var(--purple-light); text-underline-offset: 3px; }
+        .header-title a:hover { color: var(--purple-hover); }
 
-        /* ── SECTION SYSTEM ── */
-        section {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        .section-label {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--purple);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-        .section-title {
-            font-size: 32px;
-            font-weight: 300;
-            color: var(--navy);
-            line-height: 1.1;
-            letter-spacing: -0.64px;
-            margin-bottom: 2rem;
-        }
-        .section-divider {
-            border: none;
-            height: 1px;
-            background: var(--border);
-            margin: 0;
-        }
+        section { max-width: 1080px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-label { font-family: 'Source Code Pro', monospace; font-size: 12px; font-weight: 500; color: var(--purple); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .section-title { font-size: 32px; font-weight: 300; color: var(--navy); line-height: 1.1; letter-spacing: -0.64px; margin-bottom: 2rem; }
 
-        /* ── NORTH STAR GRID ── */
-        .north-star-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        .north-star-grid .ns-card:first-child {
-            grid-column: 1 / -1;
-        }
+        .north-star-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .north-star-grid .ns-card:first-child { grid-column: 1 / -1; }
 
-        .ns-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-            transition: box-shadow 0.25s ease, transform 0.25s ease;
-        }
-        .ns-card:hover {
-            box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
-            transform: translateY(-2px);
-        }
+        .ns-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: box-shadow 0.25s ease, transform 0.25s ease; }
+        .ns-card:hover { box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px; transform: translateY(-2px); }
+        .ns-card a.card-link { display: block; color: inherit; text-decoration: none; }
+        .ns-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+        .ns-image-placeholder { width: 100%; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 50%, #3d1a6e 100%); }
+        .ns-image-placeholder span { font-family: 'Source Code Pro', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
+        .ns-card:first-child .ns-image, .ns-card:first-child .ns-image-placeholder { aspect-ratio: 2.5 / 1; }
+        .ns-body { padding: 1.25rem 1.5rem 1.5rem; }
+        .ns-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .ns-source { font-size: 12px; font-weight: 400; color: var(--slate); }
+        .ns-category { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 500; color: var(--purple); background: var(--purple-soft-bg); padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(83,58,253,0.1); text-transform: uppercase; letter-spacing: 0.03em; }
+        .ns-surprise { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 500; color: var(--ruby); background: rgba(234,34,97,0.06); padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(234,34,97,0.15); text-transform: uppercase; letter-spacing: 0.03em; }
+        .ns-title { font-size: 22px; font-weight: 300; color: var(--navy); line-height: 1.1; letter-spacing: -0.22px; margin-bottom: 0.5rem; }
+        .ns-card:first-child .ns-title { font-size: 26px; letter-spacing: -0.26px; }
+        .ns-take { font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.4; }
 
-        .ns-card a.card-link {
-            display: block;
-            color: inherit;
-            text-decoration: none;
-        }
-        .ns-card a.card-link:hover { color: inherit; }
-
-        .ns-image {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            display: block;
-            background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 100%);
-        }
-        .ns-image-placeholder {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 50%, #3d1a6e 100%);
-        }
-        .ns-image-placeholder span {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 11px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.35);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* Featured (first) card has wider image */
-        .ns-card:first-child .ns-image,
-        .ns-card:first-child .ns-image-placeholder {
-            aspect-ratio: 2.5 / 1;
-        }
-
-        .ns-body {
-            padding: 1.25rem 1.5rem 1.5rem;
-        }
-        .ns-meta {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .ns-source {
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--slate);
-        }
-        .ns-category {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 10px;
-            font-weight: 500;
-            color: var(--purple);
-            background: var(--purple-soft-bg);
-            padding: 1px 6px;
-            border-radius: 4px;
-            border: 1px solid rgba(83,58,253,0.1);
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-        .ns-surprise {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 10px;
-            font-weight: 500;
-            color: var(--ruby);
-            background: rgba(234,34,97,0.06);
-            padding: 1px 6px;
-            border-radius: 4px;
-            border: 1px solid rgba(234,34,97,0.15);
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-        .ns-title {
-            font-size: 22px;
-            font-weight: 300;
-            color: var(--navy);
-            line-height: 1.1;
-            letter-spacing: -0.22px;
-            margin-bottom: 0.5rem;
-        }
-        .ns-card:first-child .ns-title {
-            font-size: 26px;
-            letter-spacing: -0.26px;
-        }
-        .ns-take {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--slate);
-            line-height: 1.4;
-        }
-
-        /* ── CLIENT FUEL ── */
-        .client-fuel-section {
-            background: var(--brand-dark);
-            max-width: none;
-            padding: 3rem 2rem;
-        }
-        .client-fuel-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-        }
-        .client-fuel-section .section-label {
-            color: var(--purple-light);
-        }
-        .client-fuel-section .section-title {
-            color: var(--white);
-        }
-
-        .client-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-        .client-block {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 6px;
-            padding: 1.25rem 1.5rem;
-        }
-        .client-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
+        .client-fuel-section { background: var(--brand-dark); max-width: none; padding: 3rem 2rem; }
+        .client-fuel-inner { max-width: 1080px; margin: 0 auto; }
+        .client-fuel-section .section-label { color: var(--purple-light); }
+        .client-fuel-section .section-title { color: var(--white); }
+        .client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+        .client-block { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1.25rem 1.5rem; }
+        .client-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
         .client-emoji { font-size: 1.1rem; }
-        .client-name {
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(255,255,255,0.9);
-            letter-spacing: -0.14px;
-        }
-        .client-item {
-            padding: 0.5rem 0;
-            border-top: 1px solid rgba(255,255,255,0.06);
-        }
+        .client-name { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.9); letter-spacing: -0.14px; }
+        .client-item { padding: 0.5rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
         .client-item:first-of-type { border-top: none; }
-        .client-item-title {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--white);
-            margin-bottom: 0.25rem;
-        }
+        .client-item-title { font-size: 14px; font-weight: 400; color: var(--white); margin-bottom: 0.25rem; }
         .client-item-title a { color: var(--white); }
         .client-item-title a:hover { color: var(--purple-light); }
-        .client-item-why {
-            font-size: 13px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.4;
-        }
-        .client-empty {
-            font-size: 13px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.3);
-            font-style: italic;
-        }
+        .client-item-why { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.4; }
+        .client-empty { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); font-style: italic; }
 
-        /* ── CULTURE RADAR ── */
-        .radar-break {
-            height: 1px;
-            max-width: 1080px;
-            margin: 2rem auto 0;
-            background: linear-gradient(90deg, var(--border) 0%, var(--purple-light) 50%, var(--border) 100%);
-        }
-        .radar-section {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 3.5rem 2rem 3rem;
-        }
-        .radar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-        }
-        .radar-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--purple);
-            border-radius: 4px;
-            padding: 1.25rem 1.5rem;
-            transition: box-shadow 0.2s ease;
-        }
-        .radar-card:hover {
-            box-shadow: rgba(23,23,23,0.08) 0px 15px 35px 0px;
-        }
-        .radar-signal {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--navy);
-            line-height: 1.4;
-        }
-        .radar-signal strong {
-            font-weight: 500;
-            color: var(--navy);
-        }
-        .radar-signal a {
-            color: var(--purple);
-            text-decoration: underline;
-            text-decoration-color: var(--purple-light);
-            text-underline-offset: 2px;
-        }
-        .radar-signal a:hover {
-            color: var(--purple-hover);
-            text-decoration-color: var(--purple-hover);
-        }
-        .header-title a {
-            color: var(--purple);
-            text-decoration: underline;
-            text-decoration-color: var(--purple-light);
-            text-underline-offset: 3px;
-        }
-        .header-title a:hover {
-            color: var(--purple-hover);
-            text-decoration-color: var(--purple-hover);
-        }
+        .radar-break { height: 1px; max-width: 1080px; margin: 2rem auto 0; background: linear-gradient(90deg, var(--border) 0%, var(--purple-light) 50%, var(--border) 100%); }
+        .radar-section { max-width: 1080px; margin: 0 auto; padding: 3.5rem 2rem 3rem; }
+        .radar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+        .radar-card { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 4px; padding: 1.25rem 1.5rem; transition: box-shadow 0.2s ease; }
+        .radar-card:hover { box-shadow: rgba(23,23,23,0.08) 0px 15px 35px 0px; }
+        .radar-signal { font-size: 16px; font-weight: 300; color: var(--navy); line-height: 1.4; }
+        .radar-signal strong { font-weight: 500; color: var(--navy); }
+        .radar-signal a { color: var(--purple); text-decoration: underline; text-decoration-color: var(--purple-light); text-underline-offset: 2px; }
+        .radar-signal a:hover { color: var(--purple-hover); }
 
-        /* ── FOOTER ── */
-        footer {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--border);
-        }
-        .footer-stats {
-            display: flex;
-            gap: 2rem;
-        }
-        .footer-stat {
-            text-align: center;
-        }
-        .footer-stat-value {
-            font-size: 22px;
-            font-weight: 300;
-            color: var(--navy);
-            letter-spacing: -0.22px;
-        }
+        footer { max-width: 1080px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
+        .footer-stats { display: flex; gap: 2rem; }
+        .footer-stat { text-align: center; }
+        .footer-stat-value { font-size: 22px; font-weight: 300; color: var(--navy); letter-spacing: -0.22px; }
         .footer-stat-value.success { color: var(--success-text); }
         .footer-stat-value.fail { color: var(--ruby); }
-        .footer-stat-label {
-            font-size: 11px;
-            font-weight: 400;
-            color: var(--slate);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .footer-credit {
-            font-size: 12px;
-            font-weight: 300;
-            color: var(--slate);
-        }
+        .footer-stat-label { font-size: 11px; font-weight: 400; color: var(--slate); text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-credit { font-size: 12px; font-weight: 300; color: var(--slate); }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 1024px) {
-            .north-star-grid { grid-template-columns: repeat(2, 1fr); }
-        }
         @media (max-width: 640px) {
             header { padding: 2rem 1.25rem 2rem; }
-            .header-title { font-size: 32px; letter-spacing: -0.64px; }
-            .vibe-check { font-size: 16px; }
+            .header-title { font-size: 32px; }
             section { padding: 2rem 1.25rem; }
-            .section-title { font-size: 26px; letter-spacing: -0.26px; }
             .north-star-grid { grid-template-columns: 1fr; }
-            .ns-card:first-child .ns-title { font-size: 22px; letter-spacing: -0.22px; }
-            .ns-card:first-child .ns-image,
-            .ns-card:first-child .ns-image-placeholder { aspect-ratio: 16 / 9; }
             .client-grid { grid-template-columns: 1fr; }
-            .radar-section { padding: 2.5rem 1.25rem 2rem; }
             .radar-grid { grid-template-columns: 1fr; }
-            .client-fuel-section { padding: 2rem 1.25rem; }
-            footer { flex-direction: column; gap: 1rem; padding: 1.5rem 1.25rem; }
+            footer { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════════════════
-         HEADER
-         Scout replaces template markers with daily content.
-         ═══════════════════════════════════════════════ -->
-
     <header>
         <div class="header-inner">
             <div class="header-top">
                 <span class="header-brand">The Daily Brief</span>
-                <span class="header-date"><!-- GENERATED_DATE -->April 6, 2026</span>
+                <span class="header-date">April 7, 2026</span>
             </div>
-            <h1 class="header-title"><!-- VIBE_CHECK_SUMMARY -->Tom Leighton turned plants into neon ghosts, A24 is making a <a href="https://www.a24films.com/">Backrooms movie</a>, and Liza Lou <a href="https://ropac.net/exhibitions/liza-lou-faq">made paint more paint than paint</a>.</h1>
+            <h1 class="header-title">History rewrites itself as play: <a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">12,000-year-old dice</a> upend everything we knew, Cinga Samson's <a href="https://hyperallergic.com/the-unbearable-strangeness-of-being/" target="_blank">haunted paintings</a> demand a second visit, and the color of <a href="https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam" target="_blank">industrial seafoam green</a> turns out to be a calculated design decision hiding in plain sight.</h1>
         </div>
     </header>
-
-    <!-- ═══════════════════════════════════════════════
-         NORTH STAR
-         ═══════════════════════════════════════════════ -->
 
     <section>
         <div class="section-label">North Star</div>
         <div class="section-title">The best new creative work, period.</div>
 
         <div class="north-star-grid">
-            <!-- NORTH_STAR_ITEMS -->
-            <div class="ns-card featured">
-                <img class="ns-image" src="https://www.thisiscolossal.com/wp-content/uploads/2026/04/leighton-fluorescent-1.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>PHOTOGRAPHY</span></div>'">
-                <div class="ns-content">
-                    <div class="ns-meta"><span class="ns-source">Colossal</span> <span class="ns-tag">PHOTOGRAPHY</span></div>
-                    <h3 class="ns-title"><a href="https://www.thisiscolossal.com/">Tom Leighton's Fluorescent Botanicals</a></h3>
-                    <p class="ns-desc">Plants photographed under UV fluorescence, glowing in ways they never do in daylight. Otherworldly but grounded in the physical world.</p>
-                </div>
+
+            <!-- Item 1: Featured -->
+            <div class="ns-card">
+                <a class="card-link" href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">
+                    <img class="ns-image" src="https://www.thisiscolossal.com/wp-content/uploads/2026/04/dice-1.jpeg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>History</span></div>'">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Colossal</span>
+                            <span class="ns-category">History</span>
+                            <span class="ns-surprise">Wildcard</span>
+                        </div>
+                        <h2 class="ns-title">12,000 Years Ago, Native Americans Were Playing Games of Chance with Handmade Dice</h2>
+                        <p class="ns-take">New research pushes the origin of dice back 6,000 years further than previously thought — and it happened in Wyoming, not Mesopotamia, rewriting the entire story of human probability thinking.</p>
+                    </div>
+                </a>
             </div>
 
+            <!-- Item 2 -->
             <div class="ns-card">
-                <img class="ns-image" src="https://ropac.net/media/cache/exhibition_header/uploads/exhibitions/liza-lou-faq.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>ART</span></div>'">
-                <div class="ns-content">
-                    <div class="ns-meta"><span class="ns-source">Thaddaeus Ropac</span> <span class="ns-tag">ART</span></div>
-                    <h3 class="ns-title"><a href="https://ropac.net/exhibitions/liza-lou-faq">Liza Lou "FAQ" &mdash; Beaded Paintings</a></h3>
-                    <p class="ns-desc">Glass beads layered over oil paint strokes, making Abstract Expressionism more itself. Opens April 10, London.</p>
-                </div>
+                <a class="card-link" href="https://hyperallergic.com/the-unbearable-strangeness-of-being/" target="_blank">
+                    <img class="ns-image" src="https://storage.ghost.io/c/51/f8/51f871d8-b6be-4a73-b958-0ca4fff0110a/content/images/2026/04/Imfihlo--detail-.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Art</span></div>'">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Hyperallergic</span>
+                            <span class="ns-category">Art</span>
+                        </div>
+                        <h2 class="ns-title">The Unbearable Strangeness of Being — Cinga Samson at White Cube NY</h2>
+                        <p class="ns-take">South African painter Cinga Samson's debut at White Cube deploys white-pupiled figures in crepuscular ritual scenes that suggest history's scars without ever making them legible — you leave unsettled in the best way.</p>
+                    </div>
+                </a>
             </div>
 
+            <!-- Item 3 -->
             <div class="ns-card">
-                <img class="ns-image" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&h=400&fit=crop" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>FILM</span></div>'">
-                <div class="ns-content">
-                    <div class="ns-meta"><span class="ns-source">A24</span> <span class="ns-tag">FILM</span></div>
-                    <h3 class="ns-title"><a href="https://a24films.com/">A24 Backrooms Feature Film</a></h3>
-                    <p class="ns-desc">Kane Parsons directs. Chiwetel Ejiofor + Renate Reinsve. Internet folklore becomes A24 horror. Cultural arc worth tracking.</p>
-                </div>
+                <a class="card-link" href="https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam" target="_blank">
+                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Design History</span></div>'">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Kottke / Beth Mathews</span>
+                            <span class="ns-category">Design History</span>
+                            <span class="ns-surprise">Wildcard</span>
+                        </div>
+                        <h2 class="ns-title">Why So Many Control Rooms Were Seafoam Green</h2>
+                        <p class="ns-take">Traces the specific industrial color from Manhattan Project-era nuclear facilities through mid-century factory design — turns out it was a calculated ergonomic and psychological choice, not aesthetics.</p>
+                    </div>
+                </a>
             </div>
 
+            <!-- Item 4 -->
             <div class="ns-card">
-                <img class="ns-image" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&h=400&fit=crop" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>ADVERTISING</span></div>'">
-                <div class="ns-content">
-                    <div class="ns-meta"><span class="ns-source">Various</span> <span class="ns-tag">ADVERTISING</span></div>
-                    <h3 class="ns-title"><a href="#">April Fools Standouts 2026</a></h3>
-                    <p class="ns-desc">Glossier x Fishwife "Sardine" won beauty. Dyson Airwrap Fur nailed the multi-day tease. Butterfinger x Top Ramen was wrong-but-believable.</p>
-                </div>
+                <a class="card-link" href="https://www.cartoonbrew.com/museums/metrograph-czech-animation-daria-kascheeva-259835.html" target="_blank">
+                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Animation</span></div>'">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Cartoon Brew</span>
+                            <span class="ns-category">Animation</span>
+                        </div>
+                        <h2 class="ns-title">Metrograph Spotlights Czech Animation — Švankmajer to Kashcheeva</h2>
+                        <p class="ns-take">A 75-year survey of Czech animation at NYC's Metrograph, from Týrlová's fabric puppets to Daria Kashcheeva in person — a rare chance to see one of animation's most singular national traditions in one room.</p>
+                    </div>
+                </a>
             </div>
 
+            <!-- Item 5 -->
             <div class="ns-card">
-                <img class="ns-image" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&h=400&fit=crop" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>PHOTOGRAPHY</span></div>'">
-                <div class="ns-content">
-                    <div class="ns-meta"><span class="ns-source">Yancey Richardson</span> <span class="ns-tag">PHOTOGRAPHY</span></div>
-                    <h3 class="ns-title"><a href="https://www.yanceyrichardson.com/">Yamamoto Masao "Ten Owls"</a></h3>
-                    <p class="ns-desc">Opens April 16, NYC. Japanese master photographer &mdash; quiet, reverent, the opposite of everything loud right now.</p>
-                </div>
+                <a class="card-link" href="https://www.booooooom.com/2026/04/06/pictoplasma-berlin-2026/" target="_blank">
+                    <img class="ns-image" src="https://cdn.booooooom.com/wp-content/uploads/2026/03/PictoBerlin1.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Character Design</span></div>'">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Booooooom</span>
+                            <span class="ns-category">Character Design</span>
+                        </div>
+                        <h2 class="ns-title">Pictoplasma Berlin 2026</h2>
+                        <p class="ns-take">The character design world's best annual gathering returns — the work showcased always signals where illustration, branding, and animation are heading 18 months from now.</p>
+                    </div>
+                </a>
             </div>
-            <!-- END NORTH_STAR_ITEMS -->
+
         </div>
     </section>
-
-    <!-- ═══════════════════════════════════════════════
-         CULTURE RADAR — visually separated block
-         ═══════════════════════════════════════════════ -->
 
     <div class="radar-break"></div>
 
@@ -510,26 +240,21 @@
         <div class="section-title">What's the signal?</div>
 
         <div class="radar-grid">
-            <!-- CULTURE_RADAR_SIGNALS -->
-            <div class="cr-card">
-                <div class="cr-signal">Internet Folklore &rarr; Prestige Film</div>
-                <p class="cr-body">The Backrooms went from a 2019 YouTube liminal space video to an A24 feature with Chiwetel Ejiofor. This is the clearest signal yet that internet mythology has become a legitimate IP pipeline. Watch for more creepypasta-to-screen deals.</p>
+
+            <div class="radar-card">
+                <p class="radar-signal"><strong>The origin story of play is being rewritten</strong> — <a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">12,000-year-old Native American dice</a> push back gambling's origin by 6,000 years, while <a href="https://www.cartoonbrew.com/museums/metrograph-czech-animation-daria-kascheeva-259835.html" target="_blank">Czech animation's Metrograph retrospective</a> frames puppetry and stop-motion as foundational play objects — both pointing toward a cultural appetite for pre-digital craft and chance.</p>
             </div>
-            <div class="cr-card">
-                <div class="cr-signal">April Fools as Brand Strategy Lab</div>
-                <p class="cr-body">The best April Fools campaigns this year weren't jokes &mdash; they were brand positioning experiments. Glossier x Fishwife tested category-crossing collabs. Dyson tested multi-day influencer teases. Dunkin gave away 1M real coffees disguised as a prank. The "joke" is now a strategy sandbox.</p>
+
+            <div class="radar-card">
+                <p class="radar-signal"><strong>Color as psychological infrastructure</strong> is having a moment — <a href="https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam" target="_blank">the seafoam green control room deep dive</a> and the moody, limited palette of <a href="https://hyperallergic.com/the-unbearable-strangeness-of-being/" target="_blank">Cinga Samson's paintings</a> both make the case that color is never decorative — it's always doing emotional labor we don't consciously register.</p>
             </div>
-            <div class="cr-card">
-                <div class="cr-signal">Craft as Concept</div>
-                <p class="cr-body">Liza Lou's beaded paintings and Tom Leighton's UV botanicals share a thread: extreme material craft used to make you see something familiar in a completely new way. Not decoration &mdash; transformation. This is where fine art and brand experience overlap.</p>
+
+            <div class="radar-card">
+                <p class="radar-signal"><strong>Character design is re-emerging as a serious cultural signal</strong> — <a href="https://www.booooooom.com/2026/04/06/pictoplasma-berlin-2026/" target="_blank">Pictoplasma Berlin 2026</a> arrives right as character-led brand work and mascot culture are accelerating, suggesting the pendulum is swinging back from pure typography/minimalism toward expressive, creature-forward identity systems.</p>
             </div>
-            <!-- END CULTURE_RADAR_SIGNALS -->
+
         </div>
     </div>
-
-    <!-- ═══════════════════════════════════════════════
-         CLIENT FUEL
-         ═══════════════════════════════════════════════ -->
 
     <div class="client-fuel-section">
         <div class="client-fuel-inner">
@@ -537,56 +262,65 @@
             <div class="section-title">Relevant to current briefs. Only genuine connections.</div>
 
             <div class="client-grid">
-                <!-- CLIENT_FUEL_ITEMS -->
-                <div class="cf-client">
-                    <div class="cf-client-header">&#127920; BetMGM</div>
-                    <div class="cf-item">
-                        <strong>"Make it Legendary" platform refresh</strong> &mdash; Jon Hamm campaign originally launched March Madness 2024. Now a year-round platform with NFL/NBA seasonal extensions. 200M+ TV impressions, 25% YoY app download lift at launch.
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">🐺</span>
+                        <span class="client-name">Great Wolf Lodge</span>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-item-title"><a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">12,000-Year-Old Dice — Colossal</a></div>
+                        <div class="client-item-why">Games of chance as a human universal — useful framing for GWL's positioning around play as primal, not childish. The idea that humans have always needed games to connect across distances hits the "family togetherness" brief differently.</div>
                     </div>
                 </div>
-                <div class="cf-client">
-                    <div class="cf-client-header">&#129385; Slim Jim</div>
-                    <div class="cf-item">
-                        April Fools roundup shows snack brands winning with "wrong-but-believable" collabs (Butterfinger x Top Ramen). Reference for weird-combo creative territory.
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">🛋️</span>
+                        <span class="client-name">Wayfair</span>
+                    </div>
+                    <p class="client-empty">Nothing today — quality over quantity.</p>
+                </div>
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">🥩</span>
+                        <span class="client-name">Slim Jim</span>
+                    </div>
+                    <p class="client-empty">Nothing today — quality over quantity.</p>
+                </div>
+
+                <div class="client-block">
+                    <div class="client-header">
+                        <span class="client-emoji">🦅</span>
+                        <span class="client-name">Jeep / America 250</span>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-item-title"><a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">Native American Dice Origins — Colossal</a></div>
+                        <div class="client-item-why">The story is rooted in the American West (Wyoming, Colorado, New Mexico) and frames Indigenous heritage as a thread of American culture predating Western civilization — a genuine, non-forced angle for the America 250 heritage brief if handled with care.</div>
                     </div>
                 </div>
-                <div class="cf-client">
-                    <div class="cf-client-header">&#128715; Wayfair</div>
-                    <div class="cf-item">
-                        Laura Berger solo opens April 17, West Palm Beach &mdash; her domestic-interior paintings could be mood/style reference for home-life creative.
-                    </div>
-                </div>
-                <div class="cf-client">
-                    <div class="cf-client-header">&#128665; Jeep / America 250</div>
-                    <div class="cf-item">
-                        Kyotographie 2026 theme is "Edge" &mdash; international photography festival opens April 18. Cross-cultural visual storytelling reference for America 250 campaign framing.
-                    </div>
-                </div>
-                <!-- END CLIENT_FUEL_ITEMS -->
+
             </div>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════
-         FOOTER
-         ═══════════════════════════════════════════════ -->
-
     <footer>
         <div class="footer-stats">
             <div class="footer-stat">
-                <div class="footer-stat-value"><!-- SOURCES_CHECKED -->93</div>
+                <div class="footer-stat-value">10</div>
                 <div class="footer-stat-label">Sources checked</div>
             </div>
             <div class="footer-stat">
-                <div class="footer-stat-value success"><!-- SOURCES_OK -->77</div>
+                <div class="footer-stat-value success">6</div>
                 <div class="footer-stat-label">Returned content</div>
             </div>
             <div class="footer-stat">
-                <div class="footer-stat-value fail"><!-- SOURCES_FAILED -->6</div>
-                <div class="footer-stat-label">Failed</div>
+                <div class="footer-stat-value fail">2</div>
+                <div class="footer-stat-label">Failed / empty</div>
             </div>
         </div>
-        <div class="footer-credit">Curated by Scout &middot; OpenClaw</div>
+        <div class="footer-credit">Curated by Scout &middot; April 7, 2026 &middot; 00:12 UTC</div>
     </footer>
 
 </body>
