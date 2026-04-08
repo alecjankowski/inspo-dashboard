@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --purple: #533afd;
             --purple-hover: #4434d4;
@@ -33,49 +32,27 @@
             --shadow-ambient: rgba(23,23,23,0.08);
             --shadow-soft: rgba(23,23,23,0.06);
         }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--white);
-            color: var(--slate);
-            line-height: 1.4;
-            letter-spacing: -0.3px;
-            font-weight: 300;
-            -webkit-font-smoothing: antialiased;
-        }
-
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--white); color: var(--slate); line-height: 1.4; letter-spacing: -0.3px; font-weight: 300; -webkit-font-smoothing: antialiased; }
         a { color: var(--purple); text-decoration: none; }
         a:hover { color: var(--purple-hover); }
-
-        header {
-            padding: 3rem 2rem 2.5rem;
-            border-bottom: 1px solid var(--border);
-            background: var(--white);
-        }
+        header { padding: 3rem 2rem 2.5rem; border-bottom: 1px solid var(--border); background: var(--white); }
         .header-inner { max-width: 1080px; margin: 0 auto; }
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.25rem;
-        }
+        .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; }
         .header-brand { font-size: 12px; font-weight: 400; color: var(--slate); letter-spacing: 0.1px; text-transform: uppercase; }
         .header-date { font-size: 12px; font-weight: 400; color: var(--slate); letter-spacing: 0.1px; }
         .header-title { font-size: 48px; font-weight: 300; color: var(--navy); line-height: 1.15; letter-spacing: -0.96px; margin-bottom: 0.75rem; }
-        .header-title a { color: var(--purple); text-decoration: underline; text-decoration-color: var(--purple-light); text-underline-offset: 3px; }
-        .header-title a:hover { color: var(--purple-hover); }
-
+        .vibe-check { font-size: 18px; font-weight: 300; color: var(--slate); line-height: 1.4; max-width: 700px; }
         section { max-width: 1080px; margin: 0 auto; padding: 3rem 2rem; }
         .section-label { font-family: 'Source Code Pro', monospace; font-size: 12px; font-weight: 500; color: var(--purple); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
         .section-title { font-size: 32px; font-weight: 300; color: var(--navy); line-height: 1.1; letter-spacing: -0.64px; margin-bottom: 2rem; }
-
-        .north-star-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .section-divider { border: none; height: 1px; background: var(--border); margin: 0; }
+        .north-star-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
         .north-star-grid .ns-card:first-child { grid-column: 1 / -1; }
-
         .ns-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: box-shadow 0.25s ease, transform 0.25s ease; }
         .ns-card:hover { box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px; transform: translateY(-2px); }
         .ns-card a.card-link { display: block; color: inherit; text-decoration: none; }
-        .ns-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+        .ns-card a.card-link:hover { color: inherit; }
+        .ns-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 100%); }
         .ns-image-placeholder { width: 100%; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 50%, #3d1a6e 100%); }
         .ns-image-placeholder span { font-family: 'Source Code Pro', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
         .ns-card:first-child .ns-image, .ns-card:first-child .ns-image-placeholder { aspect-ratio: 2.5 / 1; }
@@ -87,7 +64,6 @@
         .ns-title { font-size: 22px; font-weight: 300; color: var(--navy); line-height: 1.1; letter-spacing: -0.22px; margin-bottom: 0.5rem; }
         .ns-card:first-child .ns-title { font-size: 26px; letter-spacing: -0.26px; }
         .ns-take { font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.4; }
-
         .client-fuel-section { background: var(--brand-dark); max-width: none; padding: 3rem 2rem; }
         .client-fuel-inner { max-width: 1080px; margin: 0 auto; }
         .client-fuel-section .section-label { color: var(--purple-light); }
@@ -104,7 +80,6 @@
         .client-item-title a:hover { color: var(--purple-light); }
         .client-item-why { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.4; }
         .client-empty { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); font-style: italic; }
-
         .radar-break { height: 1px; max-width: 1080px; margin: 2rem auto 0; background: linear-gradient(90deg, var(--border) 0%, var(--purple-light) 50%, var(--border) 100%); }
         .radar-section { max-width: 1080px; margin: 0 auto; padding: 3.5rem 2rem 3rem; }
         .radar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
@@ -113,8 +88,7 @@
         .radar-signal { font-size: 16px; font-weight: 300; color: var(--navy); line-height: 1.4; }
         .radar-signal strong { font-weight: 500; color: var(--navy); }
         .radar-signal a { color: var(--purple); text-decoration: underline; text-decoration-color: var(--purple-light); text-underline-offset: 2px; }
-        .radar-signal a:hover { color: var(--purple-hover); }
-
+        .radar-signal a:hover { color: var(--purple-hover); text-decoration-color: var(--purple-hover); }
         footer { max-width: 1080px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
         .footer-stats { display: flex; gap: 2rem; }
         .footer-stat { text-align: center; }
@@ -123,15 +97,20 @@
         .footer-stat-value.fail { color: var(--ruby); }
         .footer-stat-label { font-size: 11px; font-weight: 400; color: var(--slate); text-transform: uppercase; letter-spacing: 0.05em; }
         .footer-credit { font-size: 12px; font-weight: 300; color: var(--slate); }
-
         @media (max-width: 640px) {
             header { padding: 2rem 1.25rem 2rem; }
-            .header-title { font-size: 32px; }
+            .header-title { font-size: 32px; letter-spacing: -0.64px; }
+            .vibe-check { font-size: 16px; }
             section { padding: 2rem 1.25rem; }
+            .section-title { font-size: 26px; letter-spacing: -0.26px; }
             .north-star-grid { grid-template-columns: 1fr; }
+            .ns-card:first-child .ns-title { font-size: 22px; letter-spacing: -0.22px; }
+            .ns-card:first-child .ns-image, .ns-card:first-child .ns-image-placeholder { aspect-ratio: 16 / 9; }
             .client-grid { grid-template-columns: 1fr; }
+            .radar-section { padding: 2.5rem 1.25rem 2rem; }
             .radar-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 1rem; }
+            .client-fuel-section { padding: 2rem 1.25rem; }
+            footer { flex-direction: column; gap: 1rem; padding: 1.5rem 1.25rem; }
         }
     </style>
 </head>
@@ -141,9 +120,9 @@
         <div class="header-inner">
             <div class="header-top">
                 <span class="header-brand">The Daily Brief</span>
-                <span class="header-date">April 7, 2026</span>
+                <span class="header-date">Wednesday, April 8, 2026</span>
             </div>
-            <h1 class="header-title">History rewrites itself as play: <a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">12,000-year-old dice</a> upend everything we knew, Cinga Samson's <a href="https://hyperallergic.com/the-unbearable-strangeness-of-being/" target="_blank">haunted paintings</a> demand a second visit, and the color of <a href="https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam" target="_blank">industrial seafoam green</a> turns out to be a calculated design decision hiding in plain sight.</h1>
+            <h1 class="header-title">The best work right now holds two contradictory things at once — Africa's e-waste becomes Paris gallery, a <a href="https://kottke.org/26/04/solar-eclipse-far-side-of-the-moon">moonshot becomes a family photo</a>, a restaurant becomes a reparations argument.</h1>
         </div>
     </header>
 
@@ -155,77 +134,107 @@
 
             <!-- Item 1: Featured -->
             <div class="ns-card">
-                <a class="card-link" href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">
-                    <img class="ns-image" src="https://www.thisiscolossal.com/wp-content/uploads/2026/04/dice-1.jpeg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>History</span></div>'">
+                <a class="card-link" href="https://kottke.org/26/04/solar-eclipse-far-side-of-the-moon" target="_blank">
+                    <img class="ns-image" src="https://kottke.org/plus/misc/images/editor-1775578728-0bb8ac31.png" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Science</span></div>'">
                     <div class="ns-body">
                         <div class="ns-meta">
-                            <span class="ns-source">Colossal</span>
-                            <span class="ns-category">History</span>
+                            <span class="ns-source">Kottke</span>
+                            <span class="ns-category">Science</span>
                             <span class="ns-surprise">Wildcard</span>
                         </div>
-                        <h2 class="ns-title">12,000 Years Ago, Native Americans Were Playing Games of Chance with Handmade Dice</h2>
-                        <p class="ns-take">New research pushes the origin of dice back 6,000 years further than previously thought — and it happened in Wyoming, not Mesopotamia, rewriting the entire story of human probability thinking.</p>
+                        <h2 class="ns-title">Artemis II: Solar Eclipse from the Far Side of the Moon</h2>
+                        <p class="ns-take">The Artemis II crew photographed 54 minutes of total solar eclipse from lunar orbit — the Moon blotting out the Sun entirely, the first humans to see this in 50+ years. Kottke: "Holy shit."</p>
                     </div>
                 </a>
             </div>
 
             <!-- Item 2 -->
             <div class="ns-card">
-                <a class="card-link" href="https://hyperallergic.com/the-unbearable-strangeness-of-being/" target="_blank">
-                    <img class="ns-image" src="https://storage.ghost.io/c/51/f8/51f871d8-b6be-4a73-b958-0ca4fff0110a/content/images/2026/04/Imfihlo--detail-.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Art</span></div>'">
+                <a class="card-link" href="https://www.thisiscolossal.com/2026/04/moffat-takadiwa-the-crown-sculptures-post-consumer-waste-africa/" target="_blank">
+                    <img class="ns-image" src="https://www.thisiscolossal.com/wp-content/uploads/2026/04/takadiwa-5.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Art</span></div>'">
                     <div class="ns-body">
                         <div class="ns-meta">
-                            <span class="ns-source">Hyperallergic</span>
+                            <span class="ns-source">Colossal</span>
                             <span class="ns-category">Art</span>
                         </div>
-                        <h2 class="ns-title">The Unbearable Strangeness of Being — Cinga Samson at White Cube NY</h2>
-                        <p class="ns-take">South African painter Cinga Samson's debut at White Cube deploys white-pupiled figures in crepuscular ritual scenes that suggest history's scars without ever making them legible — you leave unsettled in the best way.</p>
+                        <h2 class="ns-title">Moffat Takadiwa's E-Waste Sculptures Confront Africa's 'Colonial Hangover'</h2>
+                        <p class="ns-take">Harare artist builds tapestry-like wall sculptures from keyboard keys, nail polish brushes, and combs foraged from Zimbabwean landfills — post-colonial critique disguised as extraordinary beauty. At Semiose Paris through May 16.</p>
                     </div>
                 </a>
             </div>
 
             <!-- Item 3 -->
             <div class="ns-card">
-                <a class="card-link" href="https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam" target="_blank">
-                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Design History</span></div>'">
+                <a class="card-link" href="https://www.creativereview.co.uk/robert-pattinson-unquestionably-good-taste-1664/" target="_blank">
+                    <img class="ns-image" src="https://d12r87knhq09bn.cloudfront.net/uploads/2026/04/1664_Unquestionably-Good-Taste_Robert_Pattinson.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Advertising</span></div>'">
                     <div class="ns-body">
                         <div class="ns-meta">
-                            <span class="ns-source">Kottke / Beth Mathews</span>
-                            <span class="ns-category">Design History</span>
-                            <span class="ns-surprise">Wildcard</span>
+                            <span class="ns-source">Creative Review</span>
+                            <span class="ns-category">Advertising</span>
                         </div>
-                        <h2 class="ns-title">Why So Many Control Rooms Were Seafoam Green</h2>
-                        <p class="ns-take">Traces the specific industrial color from Manhattan Project-era nuclear facilities through mid-century factory design — turns out it was a calculated ergonomic and psychological choice, not aesthetics.</p>
+                        <h2 class="ns-title">Robert Pattinson "Unquestionably Good Taste" for 1664 — Directed by Brady Corbet</h2>
+                        <p class="ns-take">The Brutalist director on a French beer brief — Paris-set, self-aware, about the total subjectivity of taste. 83% believe they have good taste, only 31% agree on what that means. A24 energy applied with restraint.</p>
                     </div>
                 </a>
             </div>
 
             <!-- Item 4 -->
             <div class="ns-card">
-                <a class="card-link" href="https://www.cartoonbrew.com/museums/metrograph-czech-animation-daria-kascheeva-259835.html" target="_blank">
-                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Animation</span></div>'">
+                <a class="card-link" href="https://www.dezeen.com/2026/04/08/gourmega-restaurant-mariam-issoufou-manhattan-new-york/" target="_blank">
+                    <img class="ns-image" src="https://static.dezeen.com/uploads/2026/04/gourmega-restaurant-mariam-issoufou-manhattan-new-york_dezeen_2364_sq_5-852x852.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Architecture</span></div>'">
                     <div class="ns-body">
                         <div class="ns-meta">
-                            <span class="ns-source">Cartoon Brew</span>
-                            <span class="ns-category">Animation</span>
+                            <span class="ns-source">Dezeen</span>
+                            <span class="ns-category">Architecture</span>
                         </div>
-                        <h2 class="ns-title">Metrograph Spotlights Czech Animation — Švankmajer to Kashcheeva</h2>
-                        <p class="ns-take">A 75-year survey of Czech animation at NYC's Metrograph, from Týrlová's fabric puppets to Daria Kashcheeva in person — a rare chance to see one of animation's most singular national traditions in one room.</p>
+                        <h2 class="ns-title">Gourmega "Zero-Waste Restaurant" by Mariam Issoufou Architects, Manhattan</h2>
+                        <p class="ns-take">Niger-based architect designed a dark, historically layered restaurant on land once called "the Land of the Blacks" in Greenwich Village — circular tables designed to disrupt hierarchical seating. Interior is a reparations argument in travertine.</p>
                     </div>
                 </a>
             </div>
 
             <!-- Item 5 -->
             <div class="ns-card">
-                <a class="card-link" href="https://www.booooooom.com/2026/04/06/pictoplasma-berlin-2026/" target="_blank">
-                    <img class="ns-image" src="https://cdn.booooooom.com/wp-content/uploads/2026/03/PictoBerlin1.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Character Design</span></div>'">
+                <a class="card-link" href="https://katalog-barbaraiweins.com/" target="_blank">
+                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Photography</span></div>'">
                     <div class="ns-body">
                         <div class="ns-meta">
-                            <span class="ns-source">Booooooom</span>
-                            <span class="ns-category">Character Design</span>
+                            <span class="ns-source">Kottke</span>
+                            <span class="ns-category">Photography</span>
+                            <span class="ns-surprise">Wildcard</span>
                         </div>
-                        <h2 class="ns-title">Pictoplasma Berlin 2026</h2>
-                        <p class="ns-take">The character design world's best annual gathering returns — the work showcased always signals where illustration, branding, and animation are heading 18 months from now.</p>
+                        <h2 class="ns-title">Barbara Iweins Photographed All 12,795 Objects in Her House</h2>
+                        <p class="ns-take">Over four years, the Belgian photographer catalogued every possession — from a torn sock to her vibrator — indexed by color, material, frequency of use, and "what I'd save in a fire." Fully explorable archive.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="ns-card">
+                <a class="card-link" href="https://hyperallergic.com/elucidating-the-esoteric-with-hilmas-ghost/" target="_blank">
+                    <img class="ns-image" src="https://storage.ghost.io/c/51/f8/51f871d8-b6be-4a73-b958-0ca4fff0110a/content/images/2026/03/HG2.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Culture</span></div>'">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Hyperallergic</span>
+                            <span class="ns-category">Culture</span>
+                        </div>
+                        <h2 class="ns-title">Hilma's Ghost: The Feminist Collective With a Permanent Mosaic at Grand Central</h2>
+                        <p class="ns-take">How a feminist art collective built from the Hilma af Klint moment became a 600 sq ft tarot glass-tile mosaic permanently embedded in the 42nd St 7-train entrance — and keeps growing outward.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="ns-card">
+                <a class="card-link" href="https://www.cartoonbrew.com/museums/metrograph-czech-animation-daria-kascheeva-259835.html" target="_blank">
+                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Film</span></div>'">
+                    <div class="ns-body">
+                        <div class="ns-meta">
+                            <span class="ns-source">Cartoon Brew</span>
+                            <span class="ns-category">Film</span>
+                        </div>
+                        <h2 class="ns-title">Metrograph Spotlights Czech Animation: Švankmajer to Daria Kashcheeva</h2>
+                        <p class="ns-take">NYC's Metrograph is running a rare retrospective spanning 1949–2025: Švankmajer, Karel Zeman, Jiří Barta, and Oscar-shortlisted Daria Kashcheeva in person with restorations. Essential for anyone who thinks animation has limits.</p>
                     </div>
                 </a>
             </div>
@@ -237,20 +246,20 @@
 
     <div class="radar-section">
         <div class="section-label">Culture Radar</div>
-        <div class="section-title">What's the signal?</div>
+        <div class="section-title">Patterns from the full scan.</div>
 
         <div class="radar-grid">
 
             <div class="radar-card">
-                <p class="radar-signal"><strong>The origin story of play is being rewritten</strong> — <a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">12,000-year-old Native American dice</a> push back gambling's origin by 6,000 years, while <a href="https://www.cartoonbrew.com/museums/metrograph-czech-animation-daria-kascheeva-259835.html" target="_blank">Czech animation's Metrograph retrospective</a> frames puppetry and stop-motion as foundational play objects — both pointing toward a cultural appetite for pre-digital craft and chance.</p>
+                <p class="radar-signal"><strong>Space as cultural moment:</strong> The Artemis II lunar flyby is generating <a href="https://kottke.org/26/04/solar-eclipse-far-side-of-the-moon">genuinely transcendent imagery</a> — not NASA press release stuff, but astronaut Flickr accounts and real-time trackers that feel like participatory art. The first humans past lunar orbit in 50 years, and the internet is treating it accordingly.</p>
             </div>
 
             <div class="radar-card">
-                <p class="radar-signal"><strong>Color as psychological infrastructure</strong> is having a moment — <a href="https://bethmathews.substack.com/p/why-so-many-control-rooms-were-seafoam" target="_blank">the seafoam green control room deep dive</a> and the moody, limited palette of <a href="https://hyperallergic.com/the-unbearable-strangeness-of-being/" target="_blank">Cinga Samson's paintings</a> both make the case that color is never decorative — it's always doing emotional labor we don't consciously register.</p>
+                <p class="radar-signal"><strong>Post-colonial material culture</strong> is having a serious gallery moment — <a href="https://www.thisiscolossal.com/2026/04/moffat-takadiwa-the-crown-sculptures-post-consumer-waste-africa/">Takadiwa's e-waste sculptures in Paris</a>, the Hyperallergic coverage of <a href="https://hyperallergic.com/kamrooz-aram-is-everywhere/">Kamrooz Aram's pattern work</a> (Iranian visual idioms absorbed into Western abstraction), and the Gourmega restaurant recovering erased Black history in Manhattan's South Village. Objects and spaces are being asked to do the work of memory.</p>
             </div>
 
             <div class="radar-card">
-                <p class="radar-signal"><strong>Character design is re-emerging as a serious cultural signal</strong> — <a href="https://www.booooooom.com/2026/04/06/pictoplasma-berlin-2026/" target="_blank">Pictoplasma Berlin 2026</a> arrives right as character-led brand work and mascot culture are accelerating, suggesting the pendulum is swinging back from pure typography/minimalism toward expressive, creature-forward identity systems.</p>
+                <p class="radar-signal"><strong>The "where do I go?" question</strong> is surfacing as this week's emotional undercurrent across sources — literally in <a href="https://www.featureshoot.com/2026/04/to-stay-or-leave-young-women-in-lebanon-navigate-war-crisis-and-uncertainty/">Rania Matar's Lebanon portraits</a>, in Josh Kline's controversial Hyperallergic essay about artists abandoning New York, and in <a href="https://www.creativereview.co.uk/ageism-creative-industry-design-advertising/">Creative Review's ageism piece</a> about creatives hiding their experience to stay employable. Displacement, belonging, and who gets to stay — from the personal to the geopolitical.</p>
             </div>
 
         </div>
@@ -269,8 +278,8 @@
                         <span class="client-name">Great Wolf Lodge</span>
                     </div>
                     <div class="client-item">
-                        <div class="client-item-title"><a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">12,000-Year-Old Dice — Colossal</a></div>
-                        <div class="client-item-why">Games of chance as a human universal — useful framing for GWL's positioning around play as primal, not childish. The idea that humans have always needed games to connect across distances hits the "family togetherness" brief differently.</div>
+                        <div class="client-item-title"><a href="https://www.cartoonbrew.com/box-office-report/mario-galaxy-movie-box-office-259827.html" target="_blank">Super Mario Galaxy Movie: $372.5M Opening Weekend</a></div>
+                        <div class="client-item-why">Family animation at full cultural peak. The franchise is a shared generational reference across parents and kids right now — exactly GWL's audience overlap. Worth watching how Nintendo/Illumination brand partnership language works in this moment.</div>
                     </div>
                 </div>
 
@@ -279,7 +288,10 @@
                         <span class="client-emoji">🛋️</span>
                         <span class="client-name">Wayfair</span>
                     </div>
-                    <p class="client-empty">Nothing today — quality over quantity.</p>
+                    <div class="client-item">
+                        <div class="client-item-title"><a href="https://www.dezeen.com/2026/04/08/mata-architects-timber-extension-hamstead-home/" target="_blank">Mata Architects "Panoramic House" — Timber Extension, Hampstead</a></div>
+                        <div class="client-item-why">Home-as-sanctuary story done beautifully: the extension follows the slope of the land, trees stay, materials stay warm and natural. "Cohesive, flowing" is the Wayfair aspiration in architectural form. The mirrored roof reflecting the garden is the kind of detail that sells a room.</div>
+                    </div>
                 </div>
 
                 <div class="client-block">
@@ -287,7 +299,10 @@
                         <span class="client-emoji">🥩</span>
                         <span class="client-name">Slim Jim</span>
                     </div>
-                    <p class="client-empty">Nothing today — quality over quantity.</p>
+                    <div class="client-item">
+                        <div class="client-item-title"><a href="https://www.cartoonbrew.com/advertising/kpop-demon-hunters-mcdonalds-259774.html" target="_blank">McDonald's x KPop Demon Hunters Adult Happy Meals</a></div>
+                        <div class="client-item-why">Brand-fandom crossover done at absurd scale — taking a Netflix property and turning it into tactile brand merchandise. The irreverent "grown-up nostalgia object" play is directly in Slim Jim's world. Worth stealing the format, not the IP.</div>
+                    </div>
                 </div>
 
                 <div class="client-block">
@@ -296,8 +311,8 @@
                         <span class="client-name">Jeep / America 250</span>
                     </div>
                     <div class="client-item">
-                        <div class="client-item-title"><a href="https://www.thisiscolossal.com/2026/04/ice-age-native-american-ancient-dice-games-archaeology/" target="_blank">Native American Dice Origins — Colossal</a></div>
-                        <div class="client-item-why">The story is rooted in the American West (Wyoming, Colorado, New Mexico) and frames Indigenous heritage as a thread of American culture predating Western civilization — a genuine, non-forced angle for the America 250 heritage brief if handled with care.</div>
+                        <div class="client-item-title"><a href="https://www.featureshoot.com/2026/01/florida-boys-find-themselves-in-the-backwoods-of-the-state/" target="_blank">Josh Aronson "Florida Boys" — Reclaiming the American Landscape</a></div>
+                        <div class="client-item-why">"Who gets to belong in the American landscape?" — this is Jeep's question asked from the outside in. Aronson shoots queer Black and Brown men as the rightful heirs of rugged outdoor Americana. The visual language (open land, sunlight, belonging) is pure Jeep; the perspective expands who that brief can speak to.</div>
                     </div>
                 </div>
 
@@ -308,19 +323,19 @@
     <footer>
         <div class="footer-stats">
             <div class="footer-stat">
-                <div class="footer-stat-value">10</div>
+                <div class="footer-stat-value">9</div>
                 <div class="footer-stat-label">Sources checked</div>
             </div>
             <div class="footer-stat">
-                <div class="footer-stat-value success">6</div>
+                <div class="footer-stat-value success">8</div>
                 <div class="footer-stat-label">Returned content</div>
             </div>
             <div class="footer-stat">
                 <div class="footer-stat-value fail">2</div>
-                <div class="footer-stat-label">Failed / empty</div>
+                <div class="footer-stat-label">Failed / dead</div>
             </div>
         </div>
-        <div class="footer-credit">Curated by Scout &middot; April 7, 2026 &middot; 00:12 UTC</div>
+        <div class="footer-credit">Curated by Scout &middot; OpenClaw &middot; April 8, 2026</div>
     </footer>
 
 </body>
