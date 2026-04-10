@@ -3,68 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Daily Brief</title>
+    <title>The Daily Brief — April 10, 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --purple: #533afd;
-            --purple-hover: #4434d4;
-            --purple-deep: #2e2b8c;
-            --purple-light: #b9b9f9;
-            --purple-soft-bg: rgba(83,58,253,0.05);
-            --navy: #061b31;
-            --dark-navy: #0d253d;
-            --brand-dark: #1c1e54;
-            --slate: #64748d;
-            --dark-slate: #273951;
-            --white: #ffffff;
-            --border: #e5edf5;
-            --border-purple: #b9b9f9;
-            --ruby: #ea2261;
-            --magenta: #f96bee;
-            --magenta-light: #ffd7ef;
-            --success: #15be53;
+            --purple: #533afd; --purple-hover: #4434d4; --purple-deep: #2e2b8c;
+            --purple-light: #b9b9f9; --purple-soft-bg: rgba(83,58,253,0.05);
+            --navy: #061b31; --brand-dark: #1c1e54; --slate: #64748d;
+            --white: #ffffff; --border: #e5edf5; --ruby: #ea2261;
             --success-text: #108c3d;
-            --shadow-blue: rgba(50,50,93,0.25);
-            --shadow-black: rgba(0,0,0,0.1);
-            --shadow-ambient: rgba(23,23,23,0.08);
-            --shadow-soft: rgba(23,23,23,0.06);
         }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--white); color: var(--slate); line-height: 1.4; letter-spacing: -0.3px; font-weight: 300; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--slate); line-height: 1.4; letter-spacing: -0.3px; font-weight: 300; -webkit-font-smoothing: antialiased; }
         a { color: var(--purple); text-decoration: none; }
         a:hover { color: var(--purple-hover); }
-        header { padding: 3rem 2rem 2.5rem; border-bottom: 1px solid var(--border); background: var(--white); }
+
+        header { padding: 3rem 2rem 2.5rem; border-bottom: 1px solid var(--border); }
         .header-inner { max-width: 1080px; margin: 0 auto; }
         .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; }
-        .header-brand { font-size: 12px; font-weight: 400; color: var(--slate); letter-spacing: 0.1px; text-transform: uppercase; }
-        .header-date { font-size: 12px; font-weight: 400; color: var(--slate); letter-spacing: 0.1px; }
-        .header-title { font-size: 48px; font-weight: 300; color: var(--navy); line-height: 1.15; letter-spacing: -0.96px; margin-bottom: 0.75rem; }
-        .vibe-check { font-size: 18px; font-weight: 300; color: var(--slate); line-height: 1.4; max-width: 700px; }
+        .header-brand { font-size: 12px; font-weight: 400; color: var(--slate); text-transform: uppercase; letter-spacing: 0.1px; }
+        .header-date { font-size: 12px; font-weight: 400; color: var(--slate); }
+        .header-title { font-size: 44px; font-weight: 300; color: var(--navy); line-height: 1.15; letter-spacing: -0.88px; }
+        .header-title a { color: var(--purple); text-decoration: underline; text-decoration-color: var(--purple-light); text-underline-offset: 3px; }
+        .header-title a:hover { color: var(--purple-hover); }
+        .vibe-tag { display: inline-block; font-family: 'Source Code Pro', monospace; font-size: 11px; font-weight: 500; color: var(--slate); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.75rem; }
+
         section { max-width: 1080px; margin: 0 auto; padding: 3rem 2rem; }
         .section-label { font-family: 'Source Code Pro', monospace; font-size: 12px; font-weight: 500; color: var(--purple); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
-        .section-title { font-size: 32px; font-weight: 300; color: var(--navy); line-height: 1.1; letter-spacing: -0.64px; margin-bottom: 2rem; }
-        .section-divider { border: none; height: 1px; background: var(--border); margin: 0; }
-        .north-star-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .section-title { font-size: 30px; font-weight: 300; color: var(--navy); line-height: 1.1; letter-spacing: -0.6px; margin-bottom: 2rem; }
+
+        .north-star-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         .north-star-grid .ns-card:first-child { grid-column: 1 / -1; }
         .ns-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: box-shadow 0.25s ease, transform 0.25s ease; }
         .ns-card:hover { box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px; transform: translateY(-2px); }
         .ns-card a.card-link { display: block; color: inherit; text-decoration: none; }
-        .ns-card a.card-link:hover { color: inherit; }
         .ns-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 100%); }
         .ns-image-placeholder { width: 100%; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--brand-dark) 0%, var(--purple-deep) 50%, #3d1a6e 100%); }
         .ns-image-placeholder span { font-family: 'Source Code Pro', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
         .ns-card:first-child .ns-image, .ns-card:first-child .ns-image-placeholder { aspect-ratio: 2.5 / 1; }
         .ns-body { padding: 1.25rem 1.5rem 1.5rem; }
-        .ns-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+        .ns-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
         .ns-source { font-size: 12px; font-weight: 400; color: var(--slate); }
         .ns-category { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 500; color: var(--purple); background: var(--purple-soft-bg); padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(83,58,253,0.1); text-transform: uppercase; letter-spacing: 0.03em; }
         .ns-surprise { font-family: 'Source Code Pro', monospace; font-size: 10px; font-weight: 500; color: var(--ruby); background: rgba(234,34,97,0.06); padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(234,34,97,0.15); text-transform: uppercase; letter-spacing: 0.03em; }
-        .ns-title { font-size: 22px; font-weight: 300; color: var(--navy); line-height: 1.1; letter-spacing: -0.22px; margin-bottom: 0.5rem; }
+        .ns-title { font-size: 21px; font-weight: 300; color: var(--navy); line-height: 1.15; letter-spacing: -0.21px; margin-bottom: 0.5rem; }
         .ns-card:first-child .ns-title { font-size: 26px; letter-spacing: -0.26px; }
-        .ns-take { font-size: 16px; font-weight: 300; color: var(--slate); line-height: 1.4; }
-        .client-fuel-section { background: var(--brand-dark); max-width: none; padding: 3rem 2rem; }
+        .ns-take { font-size: 15px; font-weight: 300; color: var(--slate); line-height: 1.4; }
+
+        .client-fuel-section { background: var(--brand-dark); padding: 3rem 2rem; }
         .client-fuel-inner { max-width: 1080px; margin: 0 auto; }
         .client-fuel-section .section-label { color: var(--purple-light); }
         .client-fuel-section .section-title { color: var(--white); }
@@ -72,7 +59,7 @@
         .client-block { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1.25rem 1.5rem; }
         .client-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
         .client-emoji { font-size: 1.1rem; }
-        .client-name { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.9); letter-spacing: -0.14px; }
+        .client-name { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.9); }
         .client-item { padding: 0.5rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
         .client-item:first-of-type { border-top: none; }
         .client-item-title { font-size: 14px; font-weight: 400; color: var(--white); margin-bottom: 0.25rem; }
@@ -80,263 +67,255 @@
         .client-item-title a:hover { color: var(--purple-light); }
         .client-item-why { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.4; }
         .client-empty { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); font-style: italic; }
+
         .radar-break { height: 1px; max-width: 1080px; margin: 2rem auto 0; background: linear-gradient(90deg, var(--border) 0%, var(--purple-light) 50%, var(--border) 100%); }
         .radar-section { max-width: 1080px; margin: 0 auto; padding: 3.5rem 2rem 3rem; }
         .radar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
         .radar-card { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 4px; padding: 1.25rem 1.5rem; transition: box-shadow 0.2s ease; }
         .radar-card:hover { box-shadow: rgba(23,23,23,0.08) 0px 15px 35px 0px; }
-        .radar-signal { font-size: 16px; font-weight: 300; color: var(--navy); line-height: 1.4; }
-        .radar-signal strong { font-weight: 500; color: var(--navy); }
+        .radar-signal { font-size: 15px; font-weight: 300; color: var(--navy); line-height: 1.5; }
+        .radar-signal strong { font-weight: 500; }
         .radar-signal a { color: var(--purple); text-decoration: underline; text-decoration-color: var(--purple-light); text-underline-offset: 2px; }
-        .radar-signal a:hover { color: var(--purple-hover); text-decoration-color: var(--purple-hover); }
+        .radar-signal a:hover { color: var(--purple-hover); }
+
         footer { max-width: 1080px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
         .footer-stats { display: flex; gap: 2rem; }
         .footer-stat { text-align: center; }
-        .footer-stat-value { font-size: 22px; font-weight: 300; color: var(--navy); letter-spacing: -0.22px; }
+        .footer-stat-value { font-size: 22px; font-weight: 300; color: var(--navy); }
         .footer-stat-value.success { color: var(--success-text); }
         .footer-stat-value.fail { color: var(--ruby); }
         .footer-stat-label { font-size: 11px; font-weight: 400; color: var(--slate); text-transform: uppercase; letter-spacing: 0.05em; }
         .footer-credit { font-size: 12px; font-weight: 300; color: var(--slate); }
+
         @media (max-width: 640px) {
-            header { padding: 2rem 1.25rem 2rem; }
-            .header-title { font-size: 32px; letter-spacing: -0.64px; }
-            .vibe-check { font-size: 16px; }
+            header { padding: 2rem 1.25rem; }
+            .header-title { font-size: 30px; }
             section { padding: 2rem 1.25rem; }
-            .section-title { font-size: 26px; letter-spacing: -0.26px; }
             .north-star-grid { grid-template-columns: 1fr; }
-            .ns-card:first-child .ns-title { font-size: 22px; letter-spacing: -0.22px; }
-            .ns-card:first-child .ns-image, .ns-card:first-child .ns-image-placeholder { aspect-ratio: 16 / 9; }
             .client-grid { grid-template-columns: 1fr; }
-            .radar-section { padding: 2.5rem 1.25rem 2rem; }
             .radar-grid { grid-template-columns: 1fr; }
-            .client-fuel-section { padding: 2rem 1.25rem; }
-            footer { flex-direction: column; gap: 1rem; padding: 1.5rem 1.25rem; }
+            footer { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <div class="header-top">
-                <span class="header-brand">The Daily Brief</span>
-                <span class="header-date">Wednesday, April 8, 2026</span>
-            </div>
-            <h1 class="header-title">The best work right now holds two contradictory things at once — Africa's e-waste becomes Paris gallery, a <a href="https://kottke.org/26/04/solar-eclipse-far-side-of-the-moon">moonshot becomes a family photo</a>, a restaurant becomes a reparations argument.</h1>
+<header>
+    <div class="header-inner">
+        <div class="header-top">
+            <span class="header-brand">The Daily Brief</span>
+            <span class="header-date">April 10, 2026</span>
         </div>
-    </header>
+        <div class="vibe-tag">💭 Vibe Check</div>
+        <h1 class="header-title">The physical world is fighting back — from <a href="https://kottke.org/26/04/diary-comics-from-the-1940s" target="_blank">a grandmother's hand-drawn WWII diary</a> going viral to <a href="https://www.cartoonbrew.com/feature-film/brad-birds-long-awaited-ray-gunn-unveils-first-look-images-star-studded-cast-259889.html" target="_blank">Brad Bird's 30-year passion project</a> finally reaching screens, everything excellent today has been building slowly, quietly, against the grain of fast and synthetic.</h1>
+    </div>
+</header>
 
-    <section>
-        <div class="section-label">North Star</div>
-        <div class="section-title">The best new creative work, period.</div>
+<section>
+    <div class="section-label">North Star</div>
+    <div class="section-title">The best new creative work, period.</div>
 
-        <div class="north-star-grid">
+    <div class="north-star-grid">
 
-            <!-- Item 1: Featured -->
-            <div class="ns-card">
-                <a class="card-link" href="https://kottke.org/26/04/solar-eclipse-far-side-of-the-moon" target="_blank">
-                    <img class="ns-image" src="https://kottke.org/plus/misc/images/editor-1775578728-0bb8ac31.png" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Science</span></div>'">
-                    <div class="ns-body">
-                        <div class="ns-meta">
-                            <span class="ns-source">Kottke</span>
-                            <span class="ns-category">Science</span>
-                            <span class="ns-surprise">Wildcard</span>
-                        </div>
-                        <h2 class="ns-title">Artemis II: Solar Eclipse from the Far Side of the Moon</h2>
-                        <p class="ns-take">The Artemis II crew photographed 54 minutes of total solar eclipse from lunar orbit — the Moon blotting out the Sun entirely, the first humans to see this in 50+ years. Kottke: "Holy shit."</p>
+        <!-- Item 1: Featured -->
+        <div class="ns-card">
+            <a class="card-link" href="https://www.thisiscolossal.com/2026/04/kengo-kuma-earth-tree-copenhagen/" target="_blank">
+                <img class="ns-image" src="https://www.thisiscolossal.com/wp-content/uploads/2026/04/kuma-15.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Architecture</span></div>'">
+                <div class="ns-body">
+                    <div class="ns-meta">
+                        <span class="ns-source">Colossal</span>
+                        <span class="ns-category">Architecture</span>
                     </div>
-                </a>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="ns-card">
-                <a class="card-link" href="https://www.thisiscolossal.com/2026/04/moffat-takadiwa-the-crown-sculptures-post-consumer-waste-africa/" target="_blank">
-                    <img class="ns-image" src="https://www.thisiscolossal.com/wp-content/uploads/2026/04/takadiwa-5.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Art</span></div>'">
-                    <div class="ns-body">
-                        <div class="ns-meta">
-                            <span class="ns-source">Colossal</span>
-                            <span class="ns-category">Art</span>
-                        </div>
-                        <h2 class="ns-title">Moffat Takadiwa's E-Waste Sculptures Confront Africa's 'Colonial Hangover'</h2>
-                        <p class="ns-take">Harare artist builds tapestry-like wall sculptures from keyboard keys, nail polish brushes, and combs foraged from Zimbabwean landfills — post-colonial critique disguised as extraordinary beauty. At Semiose Paris through May 16.</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="ns-card">
-                <a class="card-link" href="https://www.creativereview.co.uk/robert-pattinson-unquestionably-good-taste-1664/" target="_blank">
-                    <img class="ns-image" src="https://d12r87knhq09bn.cloudfront.net/uploads/2026/04/1664_Unquestionably-Good-Taste_Robert_Pattinson.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Advertising</span></div>'">
-                    <div class="ns-body">
-                        <div class="ns-meta">
-                            <span class="ns-source">Creative Review</span>
-                            <span class="ns-category">Advertising</span>
-                        </div>
-                        <h2 class="ns-title">Robert Pattinson "Unquestionably Good Taste" for 1664 — Directed by Brady Corbet</h2>
-                        <p class="ns-take">The Brutalist director on a French beer brief — Paris-set, self-aware, about the total subjectivity of taste. 83% believe they have good taste, only 31% agree on what that means. A24 energy applied with restraint.</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="ns-card">
-                <a class="card-link" href="https://www.dezeen.com/2026/04/08/gourmega-restaurant-mariam-issoufou-manhattan-new-york/" target="_blank">
-                    <img class="ns-image" src="https://static.dezeen.com/uploads/2026/04/gourmega-restaurant-mariam-issoufou-manhattan-new-york_dezeen_2364_sq_5-852x852.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Architecture</span></div>'">
-                    <div class="ns-body">
-                        <div class="ns-meta">
-                            <span class="ns-source">Dezeen</span>
-                            <span class="ns-category">Architecture</span>
-                        </div>
-                        <h2 class="ns-title">Gourmega "Zero-Waste Restaurant" by Mariam Issoufou Architects, Manhattan</h2>
-                        <p class="ns-take">Niger-based architect designed a dark, historically layered restaurant on land once called "the Land of the Blacks" in Greenwich Village — circular tables designed to disrupt hierarchical seating. Interior is a reparations argument in travertine.</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="ns-card">
-                <a class="card-link" href="https://katalog-barbaraiweins.com/" target="_blank">
-                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Photography</span></div>'">
-                    <div class="ns-body">
-                        <div class="ns-meta">
-                            <span class="ns-source">Kottke</span>
-                            <span class="ns-category">Photography</span>
-                            <span class="ns-surprise">Wildcard</span>
-                        </div>
-                        <h2 class="ns-title">Barbara Iweins Photographed All 12,795 Objects in Her House</h2>
-                        <p class="ns-take">Over four years, the Belgian photographer catalogued every possession — from a torn sock to her vibrator — indexed by color, material, frequency of use, and "what I'd save in a fire." Fully explorable archive.</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="ns-card">
-                <a class="card-link" href="https://hyperallergic.com/elucidating-the-esoteric-with-hilmas-ghost/" target="_blank">
-                    <img class="ns-image" src="https://storage.ghost.io/c/51/f8/51f871d8-b6be-4a73-b958-0ca4fff0110a/content/images/2026/03/HG2.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Culture</span></div>'">
-                    <div class="ns-body">
-                        <div class="ns-meta">
-                            <span class="ns-source">Hyperallergic</span>
-                            <span class="ns-category">Culture</span>
-                        </div>
-                        <h2 class="ns-title">Hilma's Ghost: The Feminist Collective With a Permanent Mosaic at Grand Central</h2>
-                        <p class="ns-take">How a feminist art collective built from the Hilma af Klint moment became a 600 sq ft tarot glass-tile mosaic permanently embedded in the 42nd St 7-train entrance — and keeps growing outward.</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="ns-card">
-                <a class="card-link" href="https://www.cartoonbrew.com/museums/metrograph-czech-animation-daria-kascheeva-259835.html" target="_blank">
-                    <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Film</span></div>'">
-                    <div class="ns-body">
-                        <div class="ns-meta">
-                            <span class="ns-source">Cartoon Brew</span>
-                            <span class="ns-category">Film</span>
-                        </div>
-                        <h2 class="ns-title">Metrograph Spotlights Czech Animation: Švankmajer to Daria Kashcheeva</h2>
-                        <p class="ns-take">NYC's Metrograph is running a rare retrospective spanning 1949–2025: Švankmajer, Karel Zeman, Jiří Barta, and Oscar-shortlisted Daria Kashcheeva in person with restorations. Essential for anyone who thinks animation has limits.</p>
-                    </div>
-                </a>
-            </div>
-
+                    <h2 class="ns-title">Kengo Kuma's Wooden Canopy Harnesses <em>Komorebi</em> at Copenhagen Contemporary</h2>
+                    <p class="ns-take">A suspended canopy of wooden slats floats above a brick-and-rubble platform, translating the Japanese concept of dappled light through trees — just as Kuma wins the bid for London's new National Gallery.</p>
+                </div>
+            </a>
         </div>
-    </section>
 
-    <div class="radar-break"></div>
+        <!-- Item 2 -->
+        <div class="ns-card">
+            <a class="card-link" href="https://kottke.org/26/04/diary-comics-from-the-1940s" target="_blank">
+                <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Wildcard</span></div>'">
+                <div class="ns-body">
+                    <div class="ns-meta">
+                        <span class="ns-source">Kottke</span>
+                        <span class="ns-category">History</span>
+                        <span class="ns-surprise">Wildcard</span>
+                    </div>
+                    <h2 class="ns-title">Diary Comics From the 1940s — A Grandmother's WWII Sketches Go Viral</h2>
+                    <p class="ns-take">A Redditor's grandmother drew unfiltered comics of her marriage and her husband's 1944 deployment — raw, funny, and gut-punch personal — and they're better than most contemporary graphic novels.</p>
+                </div>
+            </a>
+        </div>
 
-    <div class="radar-section">
-        <div class="section-label">Culture Radar</div>
-        <div class="section-title">Patterns from the full scan.</div>
+        <!-- Item 3 -->
+        <div class="ns-card">
+            <a class="card-link" href="https://www.cartoonbrew.com/feature-film/brad-birds-long-awaited-ray-gunn-unveils-first-look-images-star-studded-cast-259889.html" target="_blank">
+                <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Animation</span></div>'">
+                <div class="ns-body">
+                    <div class="ns-meta">
+                        <span class="ns-source">Cartoon Brew</span>
+                        <span class="ns-category">Film / Animation</span>
+                    </div>
+                    <h2 class="ns-title">Brad Bird's Long-Awaited 'Ray Gunn' — First Look, Star-Studded Cast</h2>
+                    <p class="ns-take">30 years in the making — retro-futurist noir set in an alternate 1939, "Maltese Falcon meets Buck Rogers," with Sam Rockwell, Scarlett Johansson, and Tom Waits; drops later this year on Netflix.</p>
+                </div>
+            </a>
+        </div>
 
-        <div class="radar-grid">
+        <!-- Item 4 -->
+        <div class="ns-card">
+            <a class="card-link" href="https://www.themarginalian.org/2026/04/09/regret/" target="_blank">
+                <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Literature</span></div>'">
+                <div class="ns-body">
+                    <div class="ns-meta">
+                        <span class="ns-source">The Marginalian</span>
+                        <span class="ns-category">Literature</span>
+                        <span class="ns-surprise">Wildcard</span>
+                    </div>
+                    <h2 class="ns-title">George Saunders on the Antidote to Regret</h2>
+                    <p class="ns-take">Maria Popova at her most precise: "Regret — the fossilized fangs of <em>should have</em> sunk into the living flesh of <em>is</em>" — and Saunders's counter-argument is one worth reading slowly today.</p>
+                </div>
+            </a>
+        </div>
 
-            <div class="radar-card">
-                <p class="radar-signal"><strong>Space as cultural moment:</strong> The Artemis II lunar flyby is generating <a href="https://kottke.org/26/04/solar-eclipse-far-side-of-the-moon">genuinely transcendent imagery</a> — not NASA press release stuff, but astronaut Flickr accounts and real-time trackers that feel like participatory art. The first humans past lunar orbit in 50 years, and the internet is treating it accordingly.</p>
+        <!-- Item 5 -->
+        <div class="ns-card">
+            <a class="card-link" href="https://campaignbrief.com/hip-hop-artists-church-ap-release-wx1-track-for-auckland-transport-campaign-via-federation/" target="_blank">
+                <img class="ns-image" src="" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Advertising</span></div>'">
+                <div class="ns-body">
+                    <div class="ns-meta">
+                        <span class="ns-source">Campaign Brief</span>
+                        <span class="ns-category">Advertising</span>
+                    </div>
+                    <h2 class="ns-title">WX1 — Auckland Transport Launched a Bus Route With an Actual Hip-Hop Track</h2>
+                    <p class="ns-take">NZ agency Federation commissioned local rappers Church & AP to write and release a real Spotify single celebrating the WX1 electric bus route — it won the AXIS Award and positions public transit as cultural identity.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="ns-card">
+            <a class="card-link" href="https://www.creativereview.co.uk/shunpei-kamiya-process-illustrator/" target="_blank">
+                <img class="ns-image" src="https://d12r87knhq09bn.cloudfront.net/uploads/2026/04/featuredkamiyashunpei_06.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Illustration</span></div>'">
+                <div class="ns-body">
+                    <div class="ns-meta">
+                        <span class="ns-source">Creative Review</span>
+                        <span class="ns-category">Illustration</span>
+                    </div>
+                    <h2 class="ns-title">Shunpei Kamiya on Maintaining a Visual Voice Across Commissions</h2>
+                    <p class="ns-take">Tokyo-based illustrator talks about the discipline of keeping an authentic hand in commercial work — analogue mark-making and digital refinement in constant conversation.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="ns-card">
+            <a class="card-link" href="https://thedieline.com/skincare-power-couple-soft-services-and-vacation-team-up-for-vacation-buffing-bar/" target="_blank">
+                <img class="ns-image" src="https://thedieline.com/wp-content/uploads/2026/04/06_PR_SoftServicesVacationBuffingBar_Editorial_4x5-scaled.jpg" alt="" onerror="this.onerror=null;this.outerHTML='<div class=\'ns-image-placeholder\'><span>Packaging</span></div>'">
+                <div class="ns-body">
+                    <div class="ns-meta">
+                        <span class="ns-source">Dieline</span>
+                        <span class="ns-category">Packaging</span>
+                    </div>
+                    <h2 class="ns-title">Vacation × Soft Services: The 'Vacation' Buffing Bar</h2>
+                    <p class="ns-take">Gold-foil debossed packaging with "pool toy" and "swimsuit fabric" scent notes — a limited collab that turns a microcrystal exfoliant into a desire object purely through material craft and scent storytelling.</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<div class="radar-break"></div>
+
+<div class="radar-section">
+    <div class="section-label">Culture Radar</div>
+    <div class="section-title">Patterns from the full scan — not just what made the cut.</div>
+
+    <div class="radar-grid">
+
+        <div class="radar-card">
+            <p class="radar-signal"><strong>Slow-built, hand-made work is beating the algorithm</strong> — <a href="https://kottke.org/26/04/diary-comics-from-the-1940s" target="_blank">a grandmother's 1940s sketches going viral</a>, <a href="https://www.cartoonbrew.com/feature-film/brad-birds-long-awaited-ray-gunn-unveils-first-look-images-star-studded-cast-259889.html" target="_blank">Brad Bird's 30-year passion project</a> finally arriving, and <a href="https://www.creativereview.co.uk/shunpei-kamiya-process-illustrator/" target="_blank">Kamiya's analogue-digital illustration practice</a> all point to the same thing: audiences are craving work that couldn't have been made quickly.</p>
+        </div>
+
+        <div class="radar-card">
+            <p class="radar-signal"><strong>Independent creators are dethroning the gatekeepers</strong> — <a href="https://www.cartoonbrew.com/distribution/youtube-animation-report-259897.html" target="_blank">YouTube's new data on indie animators</a> shows Hazbin Hotel and Amazing Digital Circus reshaping the industry from outside it, while <a href="https://www.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/100124-fsg-closes-its-mcd-imprint.html" target="_blank">FSG's shutdown of MCD Books</a> (via <a href="https://kottke.org/26/04/0048723-well-this-blows-fsg-has" target="_blank">Kottke</a>) marks another institutional collapse — distributed creative power is winning.</p>
+        </div>
+
+        <div class="radar-card">
+            <p class="radar-signal"><strong>Brands are becoming cultural infrastructure</strong> — <a href="https://campaignbrief.com/hip-hop-artists-church-ap-release-wx1-track-for-auckland-transport-campaign-via-federation/" target="_blank">Auckland Transport's hip-hop campaign</a> positions a bus route as neighborhood identity, echoing how <a href="https://thedieline.com/skincare-power-couple-soft-services-and-vacation-team-up-for-vacation-buffing-bar/" target="_blank">Vacation × Soft Services packaging</a> builds desire through sensory storytelling — the best brand work today doesn't advertise, it participates.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="client-fuel-section">
+    <div class="client-fuel-inner">
+        <div class="section-label">Client Fuel</div>
+        <div class="section-title">Relevant to current briefs. Different items from North Star.</div>
+
+        <div class="client-grid">
+
+            <div class="client-block">
+                <div class="client-header">
+                    <span class="client-emoji">🐺</span>
+                    <span class="client-name">Great Wolf Lodge</span>
+                </div>
+                <div class="client-item">
+                    <div class="client-item-title"><a href="https://www.cartoonbrew.com/distribution/youtube-animation-report-259897.html" target="_blank">YouTube: Independent Animators Are Reshaping the Industry — Cartoon Brew</a></div>
+                    <div class="client-item-why">Data on how fan-driven, character-rich animation (Hazbin Hotel, Amazing Digital Circus) dominates young audiences — directly relevant to understanding what GWL's young guests are obsessed with and what IP/experience partnerships would land.</div>
+                </div>
             </div>
 
-            <div class="radar-card">
-                <p class="radar-signal"><strong>Post-colonial material culture</strong> is having a serious gallery moment — <a href="https://www.thisiscolossal.com/2026/04/moffat-takadiwa-the-crown-sculptures-post-consumer-waste-africa/">Takadiwa's e-waste sculptures in Paris</a>, the Hyperallergic coverage of <a href="https://hyperallergic.com/kamrooz-aram-is-everywhere/">Kamrooz Aram's pattern work</a> (Iranian visual idioms absorbed into Western abstraction), and the Gourmega restaurant recovering erased Black history in Manhattan's South Village. Objects and spaces are being asked to do the work of memory.</p>
+            <div class="client-block">
+                <div class="client-header">
+                    <span class="client-emoji">🛋️</span>
+                    <span class="client-name">Wayfair</span>
+                </div>
+                <div class="client-item">
+                    <div class="client-item-title"><a href="https://www.booooooom.com/2026/04/09/photo-awards-victor-cambet/" target="_blank">Booooooom Photo Awards Winner: Victor Cambet — Booooooom</a></div>
+                    <div class="client-item-why">Street photographer who "finds beauty in the ordinary" and captures "overlooked details of daily life" — models the warm, real-moment aesthetic at the heart of Wayfair's real-families brief better than any ad reference could.</div>
+                </div>
             </div>
 
-            <div class="radar-card">
-                <p class="radar-signal"><strong>The "where do I go?" question</strong> is surfacing as this week's emotional undercurrent across sources — literally in <a href="https://www.featureshoot.com/2026/04/to-stay-or-leave-young-women-in-lebanon-navigate-war-crisis-and-uncertainty/">Rania Matar's Lebanon portraits</a>, in Josh Kline's controversial Hyperallergic essay about artists abandoning New York, and in <a href="https://www.creativereview.co.uk/ageism-creative-industry-design-advertising/">Creative Review's ageism piece</a> about creatives hiding their experience to stay employable. Displacement, belonging, and who gets to stay — from the personal to the geopolitical.</p>
+            <div class="client-block">
+                <div class="client-header">
+                    <span class="client-emoji">🥩</span>
+                    <span class="client-name">Slim Jim</span>
+                </div>
+                <p class="client-empty">Nothing today — quality over quantity.</p>
+            </div>
+
+            <div class="client-block">
+                <div class="client-header">
+                    <span class="client-emoji">🦅</span>
+                    <span class="client-name">Jeep / America 250</span>
+                </div>
+                <p class="client-empty">Nothing today — quality over quantity.</p>
             </div>
 
         </div>
     </div>
+</div>
 
-    <div class="client-fuel-section">
-        <div class="client-fuel-inner">
-            <div class="section-label">Client Fuel</div>
-            <div class="section-title">Relevant to current briefs. Only genuine connections.</div>
-
-            <div class="client-grid">
-
-                <div class="client-block">
-                    <div class="client-header">
-                        <span class="client-emoji">🐺</span>
-                        <span class="client-name">Great Wolf Lodge</span>
-                    </div>
-                    <div class="client-item">
-                        <div class="client-item-title"><a href="https://www.cartoonbrew.com/box-office-report/mario-galaxy-movie-box-office-259827.html" target="_blank">Super Mario Galaxy Movie: $372.5M Opening Weekend</a></div>
-                        <div class="client-item-why">Family animation at full cultural peak. The franchise is a shared generational reference across parents and kids right now — exactly GWL's audience overlap. Worth watching how Nintendo/Illumination brand partnership language works in this moment.</div>
-                    </div>
-                </div>
-
-                <div class="client-block">
-                    <div class="client-header">
-                        <span class="client-emoji">🛋️</span>
-                        <span class="client-name">Wayfair</span>
-                    </div>
-                    <div class="client-item">
-                        <div class="client-item-title"><a href="https://www.dezeen.com/2026/04/08/mata-architects-timber-extension-hamstead-home/" target="_blank">Mata Architects "Panoramic House" — Timber Extension, Hampstead</a></div>
-                        <div class="client-item-why">Home-as-sanctuary story done beautifully: the extension follows the slope of the land, trees stay, materials stay warm and natural. "Cohesive, flowing" is the Wayfair aspiration in architectural form. The mirrored roof reflecting the garden is the kind of detail that sells a room.</div>
-                    </div>
-                </div>
-
-                <div class="client-block">
-                    <div class="client-header">
-                        <span class="client-emoji">🥩</span>
-                        <span class="client-name">Slim Jim</span>
-                    </div>
-                    <div class="client-item">
-                        <div class="client-item-title"><a href="https://www.cartoonbrew.com/advertising/kpop-demon-hunters-mcdonalds-259774.html" target="_blank">McDonald's x KPop Demon Hunters Adult Happy Meals</a></div>
-                        <div class="client-item-why">Brand-fandom crossover done at absurd scale — taking a Netflix property and turning it into tactile brand merchandise. The irreverent "grown-up nostalgia object" play is directly in Slim Jim's world. Worth stealing the format, not the IP.</div>
-                    </div>
-                </div>
-
-                <div class="client-block">
-                    <div class="client-header">
-                        <span class="client-emoji">🦅</span>
-                        <span class="client-name">Jeep / America 250</span>
-                    </div>
-                    <div class="client-item">
-                        <div class="client-item-title"><a href="https://www.featureshoot.com/2026/01/florida-boys-find-themselves-in-the-backwoods-of-the-state/" target="_blank">Josh Aronson "Florida Boys" — Reclaiming the American Landscape</a></div>
-                        <div class="client-item-why">"Who gets to belong in the American landscape?" — this is Jeep's question asked from the outside in. Aronson shoots queer Black and Brown men as the rightful heirs of rugged outdoor Americana. The visual language (open land, sunlight, belonging) is pure Jeep; the perspective expands who that brief can speak to.</div>
-                    </div>
-                </div>
-
-            </div>
+<footer>
+    <div class="footer-stats">
+        <div class="footer-stat">
+            <div class="footer-stat-value">10</div>
+            <div class="footer-stat-label">Sources checked</div>
+        </div>
+        <div class="footer-stat">
+            <div class="footer-stat-value success">8</div>
+            <div class="footer-stat-label">Returned content</div>
+        </div>
+        <div class="footer-stat">
+            <div class="footer-stat-value fail">1</div>
+            <div class="footer-stat-label">Failed</div>
         </div>
     </div>
-
-    <footer>
-        <div class="footer-stats">
-            <div class="footer-stat">
-                <div class="footer-stat-value">9</div>
-                <div class="footer-stat-label">Sources checked</div>
-            </div>
-            <div class="footer-stat">
-                <div class="footer-stat-value success">8</div>
-                <div class="footer-stat-label">Returned content</div>
-            </div>
-            <div class="footer-stat">
-                <div class="footer-stat-value fail">2</div>
-                <div class="footer-stat-label">Failed / dead</div>
-            </div>
-        </div>
-        <div class="footer-credit">Curated by Scout &middot; OpenClaw &middot; April 8, 2026</div>
-    </footer>
+    <div class="footer-credit">Curated by Scout 🔭 &middot; April 10, 2026 &middot; 15:27 UTC</div>
+</footer>
 
 </body>
 </html>
